@@ -1,3 +1,4 @@
+
 package com.cliente;
 
 import java.io.IOException;
@@ -5,7 +6,7 @@ import java.io.IOException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -31,29 +32,16 @@ public class PrimaryController {
     @FXML
     private Label lblEstado;
 
-    // Información del servidor
-    @FXML
-    private Label lblUsuarios;
-
-    @FXML
-    private Label lblTiempoActivo;
-
-    @FXML
-    private Label lblUltimoMensaje;
-
-    // Paneles de actividad y chat
-    @FXML
-    private TextArea txtActividad;
-
+    // Área donde aparecen los mensajes
     @FXML
     private TextArea txtChat;
 
     // Campos para enviar mensajes
     @FXML
-    private ComboBox<String> cbTipo;
+    private CheckBox cbPrivado;
 
     @FXML
-    private ComboBox<String> cbDestinatario;
+    private TextField txtDestinatario;
 
     @FXML
     private TextField txtMensaje;
@@ -70,27 +58,27 @@ public class PrimaryController {
     @FXML
     private void initialize() {
 
-        cbTipo.getItems().addAll("Público", "Privado");
-        cbTipo.setValue("Público");
+        // El destinatario solo se habilita al seleccionar Privado.
+        txtDestinatario.setDisable(true);
 
-        cbDestinatario.setDisable(true);
-
-        txtActividad.setEditable(false);
+        // El chat no se puede modificar manualmente.
         txtChat.setEditable(false);
 
+        // Estado inicial de la interfaz.
         lblEstado.setText("Desconectado");
-        lblUsuarios.setText("Usuarios conectados: 0");
-        lblTiempoActivo.setText("Tiempo activo: 00:00:00");
-        lblUltimoMensaje.setText("Todavía no hay mensajes");
 
         btnDesconectar.setDisable(true);
         btnEnviar.setDisable(true);
 
+        // Configuramos los botones.
         btnConectar.setOnAction(event -> conectar());
         btnDesconectar.setOnAction(event -> desconectar());
         btnEnviar.setOnAction(event -> enviarMensaje());
 
-        cbTipo.setOnAction(event -> actualizarEstadoDestinatario());
+        // Controlamos la casilla de mensajes privados.
+        cbPrivado.setOnAction(
+            event -> actualizarEstadoDestinatario()
+        );
     }
 
     // Establece la conexión con el servidor
@@ -101,8 +89,9 @@ public class PrimaryController {
         String textoPuerto = txtPuerto.getText().trim();
 
         if (usuario.isEmpty() || ip.isEmpty() || textoPuerto.isEmpty()) {
-            txtActividad.appendText(
-                    "ERROR: Completa todos los campos de conexión.\n"
+
+            txtChat.appendText(
+                "ERROR: Completa todos los campos de conexión.\n"
             );
             return;
         }
@@ -119,8 +108,8 @@ public class PrimaryController {
 
         } catch (NumberFormatException e) {
 
-            txtActividad.appendText(
-                    "ERROR: El puerto debe estar entre 1 y 65535.\n"
+            txtChat.appendText(
+                "ERROR: El puerto debe estar entre 1 y 65535.\n"
             );
             return;
         }
@@ -139,10 +128,13 @@ public class PrimaryController {
             btnDesconectar.setDisable(false);
             btnEnviar.setDisable(false);
 
-            txtActividad.appendText(
-                    "Conectado al servidor como " + usuario + ".\n"
+            txtChat.appendText(
+                "Conectado al servidor como " + usuario + ".\n"
             );
 
+            actualizarEstadoDestinatario();
+
+            // Iniciamos el hilo de recepción.
             iniciarRecepcion();
 
         } catch (IOException e) {
@@ -150,8 +142,8 @@ public class PrimaryController {
             cliente.desconectar();
             cliente = null;
 
-            txtActividad.appendText(
-                    "ERROR DE CONEXIÓN: " + e.getMessage() + "\n"
+            txtChat.appendText(
+                "ERROR DE CONEXIÓN: " + e.getMessage() + "\n"
             );
 
             lblEstado.setText("Desconectado");
@@ -173,16 +165,19 @@ public class PrimaryController {
                     String mensajeRecibido = mensaje;
 
                     Platform.runLater(
-                            () -> procesarMensaje(mensajeRecibido)
+                        () -> procesarMensaje(mensajeRecibido)
                     );
                 }
 
                 // El servidor ha cerrado la conexión.
                 if (conectado) {
+
                     Platform.runLater(() -> {
-                        txtActividad.appendText(
-                                "El servidor ha cerrado la conexión.\n"
+
+                        txtChat.appendText(
+                            "El servidor ha cerrado la conexión.\n"
                         );
+
                         desconectar();
                     });
                 }
@@ -190,10 +185,13 @@ public class PrimaryController {
             } catch (IOException e) {
 
                 if (conectado) {
+
                     Platform.runLater(() -> {
-                        txtActividad.appendText(
-                                "Se ha perdido la conexión con el servidor.\n"
+
+                        txtChat.appendText(
+                            "Se ha perdido la conexión con el servidor.\n"
                         );
+
                         desconectar();
                     });
                 }
@@ -208,15 +206,15 @@ public class PrimaryController {
     // Interpreta los mensajes recibidos del servidor
     private void procesarMensaje(String mensaje) {
 
-        // Avisos de conexión y desconexión
+        // Avisos de conexión y desconexión.
         if (mensaje.startsWith("SERVIDOR|")) {
 
-            txtActividad.appendText(
-                    mensaje.substring(9) + "\n"
+            txtChat.appendText(
+                mensaje.substring(9) + "\n"
             );
         }
 
-        // Mensajes públicos
+        // Mensajes públicos.
         else if (mensaje.startsWith("PUBLIC|")) {
 
             String[] partes = mensaje.split("\\|", 3);
@@ -224,13 +222,12 @@ public class PrimaryController {
             if (partes.length == 3) {
 
                 txtChat.appendText(
-                        "[PÚBLICO] " + partes[1]
-                        + ": " + partes[2] + "\n"
+                    partes[1] + ": " + partes[2] + "\n"
                 );
             }
         }
 
-        // Mensajes privados
+        // Mensajes privados.
         else if (mensaje.startsWith("PRIVATE|")) {
 
             String[] partes = mensaje.split("\\|", 3);
@@ -238,89 +235,36 @@ public class PrimaryController {
             if (partes.length == 3) {
 
                 txtChat.appendText(
-                        "[PRIVADO] " + partes[1]
-                        + ": " + partes[2] + "\n"
+                    "[PRIVADO] " + partes[1]
+                    + ": " + partes[2] + "\n"
                 );
             }
         }
 
-        // Lista de usuarios conectados
-        else if (mensaje.startsWith("USERS|")
-                || mensaje.equals("USERS")) {
-
-            actualizarUsuarios(mensaje);
-        }
-
-        // Estadísticas del servidor
-        else if (mensaje.startsWith("STATS|")) {
-
-            String[] partes = mensaje.split("\\|", 3);
-
-            if (partes.length == 3) {
-
-                lblUsuarios.setText(
-                        "Usuarios conectados: " + partes[1]
-                );
-
-                lblTiempoActivo.setText(
-                        "Tiempo activo: " + partes[2]
-                );
-            }
-        }
-
-        // Último mensaje recibido
-        else if (mensaje.startsWith("LAST|")) {
-
-            lblUltimoMensaje.setText(
-                    mensaje.substring(5)
-            );
-        }
-
-        // Errores del servidor
+        // Errores enviados por el servidor.
         else if (mensaje.startsWith("ERROR|")) {
 
-            txtActividad.appendText(
-                    "ERROR: " + mensaje.substring(6) + "\n"
+            txtChat.appendText(
+                "ERROR: " + mensaje.substring(6) + "\n"
             );
         }
+
+        // USERS, STATS y LAST son mensajes de control
+        // que no necesitamos mostrar en el chat.
     }
 
-    // Actualiza el ComboBox de destinatarios
-    private void actualizarUsuarios(String mensaje) {
-
-        String[] usuarios = mensaje.split("\\|");
-
-        String destinatarioAnterior = cbDestinatario.getValue();
-
-        cbDestinatario.getItems().clear();
-
-        // Añadimos todos los usuarios excepto el propio cliente.
-        for (int i = 1; i < usuarios.length; i++) {
-
-            if (!usuarios[i].equals(txtUsuario.getText().trim())) {
-                cbDestinatario.getItems().add(usuarios[i]);
-            }
-        }
-
-        // Conservamos la selección si el usuario sigue conectado.
-        if (destinatarioAnterior != null
-                && cbDestinatario.getItems().contains(destinatarioAnterior)) {
-
-            cbDestinatario.setValue(destinatarioAnterior);
-        }
-
-        actualizarEstadoDestinatario();
-    }
-
-    // Controla cuándo se puede seleccionar un destinatario
+    // Habilita o deshabilita el campo del destinatario
     private void actualizarEstadoDestinatario() {
 
-        boolean privado = "Privado".equals(cbTipo.getValue());
+        boolean privado = cbPrivado.isSelected();
 
-        cbDestinatario.setDisable(
-                !privado || !conectado
-                || cbDestinatario.getItems().isEmpty()
+        txtDestinatario.setDisable(
+            !privado || !conectado
         );
+
+        if (!privado) {
+            txtDestinatario.clear();
+        }
     }
 
     // Envía mensajes públicos o privados
@@ -338,31 +282,42 @@ public class PrimaryController {
 
         try {
 
-            if ("Público".equals(cbTipo.getValue())) {
+            // Si la casilla está marcada, enviamos un privado.
+            if (cbPrivado.isSelected()) {
 
-                cliente.enviarPublico(contenido);
+                String destinatario =
+                    txtDestinatario.getText().trim();
 
-            } else {
+                if (destinatario.isEmpty()) {
 
-                String destinatario = cbDestinatario.getValue();
+                    txtChat.appendText(
+                        "ERROR: Introduce un destinatario.\n"
+                    );
+                    return;
+                }
 
-                if (destinatario == null) {
+                if (destinatario.equals(txtUsuario.getText().trim())) {
 
-                    txtActividad.appendText(
-                            "Selecciona un destinatario.\n"
+                    txtChat.appendText(
+                        "ERROR: No puedes enviarte un mensaje a ti mismo.\n"
                     );
                     return;
                 }
 
                 cliente.enviarPrivado(destinatario, contenido);
+
+            } else {
+
+                // Si no está marcada, enviamos un mensaje público.
+                cliente.enviarPublico(contenido);
             }
 
             txtMensaje.clear();
 
         } catch (IllegalStateException e) {
 
-            txtActividad.appendText(
-                    "ERROR AL ENVIAR: " + e.getMessage() + "\n"
+            txtChat.appendText(
+                "ERROR AL ENVIAR: " + e.getMessage() + "\n"
             );
         }
     }
@@ -383,13 +338,12 @@ public class PrimaryController {
             btnDesconectar.setDisable(true);
             btnEnviar.setDisable(true);
 
-            cbDestinatario.getItems().clear();
-            cbDestinatario.setDisable(true);
+            cbPrivado.setSelected(false);
+            txtDestinatario.clear();
+            txtDestinatario.setDisable(true);
 
-            lblUsuarios.setText("Usuarios conectados: 0");
-
-            txtActividad.appendText(
-                    "Te has desconectado del servidor.\n"
+            txtChat.appendText(
+                "Te has desconectado del servidor.\n"
             );
         }
     }

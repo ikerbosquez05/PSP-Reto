@@ -1,0 +1,148 @@
+[10/11/2026 10:26:22] Servidor iniciado en el puerto 5000
+[10/11/2026 10:34:06] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:34:06] Usuario Iker conectado.
+[10/11/2026 10:34:17] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:34:17] Usuario Pepe conectado.
+[10/11/2026 10:34:21] Mensaje público de Pepe: hola
+[10/11/2026 10:34:35] Mensaje público de Iker: eyy
+[10/11/2026 10:34:44] Mensaje público de Iker: e
+[10/11/2026 10:34:46] Mensaje público de Iker: e
+[10/11/2026 10:34:51] Mensaje público de Iker: eeeee
+[10/11/2026 10:34:53] Mensaje público de Iker: eee
+[10/11/2026 10:34:54] Mensaje público de Iker: ee
+[10/11/2026 10:34:56] Mensaje público de Iker: ee
+[10/11/2026 10:34:57] Mensaje público de Iker: eee
+[10/11/2026 10:34:59] Mensaje público de Iker: eee
+[10/11/2026 10:35:12] Mensaje público de Iker: eeeasfanfhbibfiahuifhaoiwhoiahihakjshdkhhasldhlahsdlkahlkdaljsdljahdljajlhdkashjdahsljdhalhsdlkahlksdhalshdlkahdlkashdlkahsldkashdaslkashdlkashdlkhasldkahslkdhaskdhlasdhahsdlkahdlhaslkdhalksdhalksdhlkahdlkahsldhalksdhklashdlkahsldkhasdhlajhalksdhalkhdlakhdlahdlkhalkdhalkdhaslkhd
+[10/11/2026 10:35:18] Mensaje público de Iker: eeee
+[10/11/2026 10:35:19] Mensaje público de Iker: eee
+[10/11/2026 10:35:20] Mensaje público de Iker: eee
+[10/11/2026 10:35:24] Mensaje público de Iker: eee
+[10/11/2026 10:35:26] Mensaje público de Iker: eee
+[10/11/2026 10:35:29] Mensaje público de Iker: eee
+[10/11/2026 10:35:34] Mensaje público de Iker: eee
+[10/11/2026 10:35:37] Mensaje público de Iker: eee
+[10/11/2026 10:35:41] Mensaje público de Iker: eee
+[10/11/2026 10:35:42] Mensaje público de Iker: eee
+[10/11/2026 10:35:44] Mensaje público de Iker: ee
+[10/11/2026 10:35:46] Mensaje público de Iker: eee
+[10/11/2026 10:35:47] Mensaje público de Iker: eee
+[10/11/2026 10:35:49] Mensaje público de Iker: eee
+[10/11/2026 10:35:51] Mensaje público de Iker: eee
+[10/11/2026 10:35:53] Mensaje público de Iker: eee
+[10/11/2026 10:35:55] Mensaje público de Iker: eeee
+[10/11/2026 10:35:57] Mensaje público de Iker: eeee
+[10/11/2026 10:35:59] Mensaje público de Iker: eee
+[10/11/2026 10:36:10] Mensaje privado no entregado: Iker intentó escribir a Peeeee, pero no estaba conectado.
+[10/11/2026 10:36:18] Mensaje privado de Iker para Pepe: asdasd
+[10/11/2026 10:36:32] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:36:32] Usuario Pepa conectado.
+[10/11/2026 10:36:41] Mensaje privado de Pepa para Pepe: Ey
+[10/11/2026 10:37:00] Error de comunicación con Iker: Connection reset
+[10/11/2026 10:37:00] Usuario Iker desconectado.
+[10/11/2026 10:38:56] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:38:56] Conexión rechazada para el usuario Pepe: nombre ocupado o servidor completo.
+[10/11/2026 10:39:02] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:39:02] Usuario Pepee conectado.
+[10/11/2026 10:39:14] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:39:14] Usuario Pepepeeeee conectado.
+[10/11/2026 10:39:24] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:39:24] Usuario asdasd conectado.
+[10/11/2026 10:39:34] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:39:34] Usuario asasasd conectado.
+[10/11/2026 10:39:42] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:39:42] Usuario awd zc conectado.
+[10/11/2026 10:40:12] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:40:12] Usuario sdasd conectado.
+[10/11/2026 10:40:21] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:40:21] Usuario weqwdawdaw conectado.
+[10/11/2026 10:40:29] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:40:29] Usuario da dawdc conectado.
+[10/11/2026 10:40:38] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:40:38] Conexión rechazada para el usuario a sdasdz: nombre ocupado o servidor completo.
+[10/11/2026 10:41:42] Error de comunicación con Pepe: Connection reset
+[10/11/2026 10:41:42] Usuario Pepe desconectado.
+[10/11/2026 10:41:46] Error de comunicación con da dawdc: Connection reset
+[10/11/2026 10:41:46] Usuario da dawdc desconectado.
+[10/11/2026 10:41:47] Error de comunicación con weqwdawdaw: Connection reset
+[10/11/2026 10:41:47] Usuario weqwdawdaw desconectado.
+[10/11/2026 10:41:48] Error de comunicación con sdasd: Connection reset
+[10/11/2026 10:41:48] Usuario sdasd desconectado.
+[10/11/2026 10:41:50] Error de comunicación con asasasd: Connection reset
+[10/11/2026 10:41:50] Usuario asasasd desconectado.
+[10/11/2026 10:41:51] Error de comunicación con awd zc: Connection reset
+[10/11/2026 10:41:51] Usuario awd zc desconectado.
+[10/11/2026 10:41:52] Error de comunicación con asdasd: Connection reset
+[10/11/2026 10:41:52] Usuario asdasd desconectado.
+[10/11/2026 10:41:54] Error de comunicación con Pepepeeeee: Connection reset
+[10/11/2026 10:41:54] Usuario Pepepeeeee desconectado.
+[10/11/2026 10:41:55] Error de comunicación con Pepee: Connection reset
+[10/11/2026 10:41:55] Usuario Pepee desconectado.
+[10/11/2026 10:41:56] Error de comunicación con Pepa: Connection reset
+[10/11/2026 10:41:56] Usuario Pepa desconectado.
+[10/11/2026 10:42:50] Servidor iniciado en el puerto 5000
+[10/11/2026 10:44:16] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:44:16] Usuario Pepe conectado.
+[10/11/2026 10:44:26] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:44:26] Usuario Pepa conectado.
+[10/11/2026 10:44:38] Error de comunicación con Pepa: Connection reset
+[10/11/2026 10:44:38] Usuario Pepa desconectado.
+[10/11/2026 10:44:40] Error de comunicación con Pepe: Connection reset
+[10/11/2026 10:44:40] Usuario Pepe desconectado.
+[10/11/2026 10:45:17] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:45:17] Usuario Iker conectado.
+[10/11/2026 10:45:36] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:45:36] Usuario Pepe conectado.
+[10/11/2026 10:45:42] Usuario Pepe desconectado.
+[10/11/2026 10:45:43] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:45:43] Usuario Jon conectado.
+[10/11/2026 10:45:49] Mensaje público de Jon: hola
+[10/11/2026 10:46:04] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:46:04] Usuario Pepe conectado.
+[10/11/2026 10:46:13] Mensaje privado de Pepe para Jon: Hola
+[10/11/2026 10:46:40] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:46:40] Conexión rechazada para el usuario Iker: nombre ocupado o servidor completo.
+[10/11/2026 10:47:05] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 10:47:05] Usuario asdasda conectado.
+[10/11/2026 10:47:07] Mensaje público de asdasda: eee
+[10/11/2026 10:47:08] Mensaje público de asdasda: eee
+[10/11/2026 10:47:09] Mensaje público de asdasda: eee
+[10/11/2026 10:47:11] Mensaje público de asdasda: ee
+[10/11/2026 10:47:12] Mensaje público de asdasda: eee
+[10/11/2026 10:47:13] Mensaje público de asdasda: eee
+[10/11/2026 10:47:15] Mensaje público de asdasda: eee
+[10/11/2026 10:47:23] Mensaje público de asdasda: eeeee
+[10/11/2026 10:47:24] Mensaje público de asdasda: eee
+[10/11/2026 10:47:25] Mensaje público de asdasda: eee
+[10/11/2026 10:47:29] Mensaje público de asdasda: ee
+[10/11/2026 10:47:31] Mensaje público de asdasda: eee
+[10/11/2026 10:47:33] Mensaje público de asdasda: eee
+[10/11/2026 10:47:35] Mensaje público de asdasda: ee
+[10/11/2026 10:47:36] Mensaje público de asdasda: ee
+[10/11/2026 10:47:39] Mensaje público de asdasda: e
+[10/11/2026 10:47:40] Mensaje público de asdasda: ee
+[10/11/2026 10:47:43] Mensaje público de asdasda: e
+[10/11/2026 10:47:45] Mensaje público de asdasda: eee
+[10/11/2026 10:47:46] Mensaje público de asdasda: eee
+[10/11/2026 10:47:48] Mensaje público de asdasda: ee
+[10/11/2026 10:47:50] Mensaje público de asdasda: e
+[10/11/2026 10:47:52] Mensaje público de asdasda: e
+[10/11/2026 10:47:53] Mensaje público de asdasda: e
+[10/11/2026 10:47:54] Mensaje público de asdasda: e
+[10/11/2026 10:47:55] Mensaje público de asdasda: e
+[10/11/2026 10:47:56] Mensaje público de asdasda: e
+[10/11/2026 10:48:09] Mensaje público de asdasda: clñks jfkFLALFHLÑIAW GP IJASGIPUGHS<IPGHBOASH GOISHPIJGSIJFHÌOS<BGISHBOIFBGS<JIBFIPSÑHFOHOIEGHBOIWBGIWBGHBWKJGBWIBGIEUSD
+[10/11/2026 10:48:23] Mensaje público de asdasda: ASFBIgbfiHBWIFHBIwebfiwhiupvhpwiebfiewifhiuefhisufhuiwefiugwpiefhwhfhwofhowhroiwh3orihwoehfwhfu9whirhVNWOIEFvqui0uJW0INEUJVMewthbfnjrwnvjgoiwjeoi`JVWOIETJiow3jtoiWV3
+[10/11/2026 10:48:38] Error de comunicación con asdasda: Connection reset
+[10/11/2026 10:48:38] Usuario asdasda desconectado.
+[10/11/2026 13:01:01] Servidor iniciado en el puerto 5000
+[10/11/2026 13:01:08] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 13:01:08] Usuario Iker conectado.
+[10/11/2026 13:01:13] Mensaje público de Iker: hola
+[10/11/2026 13:01:21] Error de comunicación con Iker: Connection reset
+[10/11/2026 13:01:21] Usuario Iker desconectado.
+[10/11/2026 13:03:40] Servidor iniciado en el puerto 5000
+[10/11/2026 13:03:50] Nueva conexión recibida desde 127.0.0.1
+[10/11/2026 13:03:50] Usuario Iker conectado.
+[10/11/2026 13:04:00] Error de comunicación con Iker: Connection reset
+[10/11/2026 13:04:00] Usuario Iker desconectado.
